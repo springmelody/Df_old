@@ -20,10 +20,16 @@ set                     $term kitty
 # on the original workspace that the command was run on.
 set $menu dmenu_path | wofi --show drun -I | xargs swaymsg exec --
 
+gaps inner 15
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output                  * bg /usr/share/backgrounds/fedora-workstation/corn.jpg fill
+output                  * bg /usr/share/backgrounds/0296.jpg fill
+#output                  * bg /usr/share/backgrounds/0188.jpg fill
+#output                  * bg /usr/share/backgrounds/0073.jpg fill
+#output                  * bg /usr/share/backgrounds/retro.jpg fill
+
 #
 # Example configuration:
 #
