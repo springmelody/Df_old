@@ -1,41 +1,26 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
-# Read `man 5 sway` for a complete reference.
+# My config for sway
 
-### Variables
-#
-# Logo key. Use Mod1 for Alt.
+## Variables
 set                     $mod Mod4
-# Home row direction keys, like vim
 set                     $left h
 set                     $down j
 set                     $up k
 set                     $right l
-# Your preferred terminal emulator
+
+## Terminal emulator
 set                     $term kitty
-# Your preferred application launcher
-# Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
+
+## Launcher
 set $menu dmenu_path | wofi --show drun -I | xargs swaymsg exec --
 
+## Gaps
 gaps inner 15
+default_border pixel 1
 
-### Output configuration
-#
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output                  * bg /usr/share/backgrounds/0296.jpg fill
-#output                  * bg /usr/share/backgrounds/0188.jpg fill
-#output                  * bg /usr/share/backgrounds/0073.jpg fill
-#output                  * bg /usr/share/backgrounds/retro.jpg fill
 
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
+## Wallpaper #"stretch", "fill", "fit", "center", "tile"
+output                   * bg /home/zakharovdev/.config/sway/st2.jpg fill
+
 
 ### Idle configuration
 #
@@ -50,31 +35,15 @@ output                  * bg /usr/share/backgrounds/0296.jpg fill
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
-### Input configuration
-#
-# Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-#
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
 
-### Key bindings
-#
-# Basics:
-#
-    # Start a terminal
+
+## Start a terminal
     bindsym --to-code   $mod+Return exec $term
 
-    # Kill focused window
+## Kill focused window
     bindsym --to-code   $mod+Shift+c kill
 
-    # Start your launcher
+## Start your launcher
     bindsym --to-code   $mod+d exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
@@ -89,34 +58,32 @@ output                  * bg /usr/share/backgrounds/0296.jpg fill
 
     # Exit sway (logs you out of your Wayland session)
     bindsym             $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
-#
-# Moving around:
-#
-    # Move your focus around
+
+## Move your focus around
     bindsym --to-code   $mod+$left focus left
     bindsym --to-code   $mod+$down focus down
     bindsym --to-code   $mod+$up focus up
     bindsym --to-code   $mod+$right focus right
-    # Or use $mod+[up|down|left|right]
+
+## Or use $mod+[up|down|left|right]
     bindsym --to-code   $mod+Left focus left
     bindsym --to-code   $mod+Down focus down
     bindsym --to-code   $mod+Up focus up
     bindsym --to-code   $mod+Right focus right
 
-    # Move the focused window with the same, but add Shift
+## Move the focused window with the same, but add Shift
     bindsym --to-code   $mod+Shift+$left move left
     bindsym --to-code   $mod+Shift+$down move down
     bindsym --to-code   $mod+Shift+$up move up
     bindsym --to-code   $mod+Shift+$right move right
-    # Ditto, with arrow keys
+
+## Ditto, with arrow keys
     bindsym --to-code   $mod+Shift+Left move left
     bindsym --to-code   $mod+Shift+Down move down
     bindsym --to-code   $mod+Shift+Up move up
     bindsym --to-code   $mod+Shift+Right move right
-#
-# Workspaces:
-#
-    # Switch to workspace
+
+## Switch to workspace
     bindsym --to-code   $mod+1 workspace number 1
     bindsym --to-code   $mod+2 workspace number 2
     bindsym --to-code   $mod+3 workspace number 3
@@ -127,7 +94,8 @@ output                  * bg /usr/share/backgrounds/0296.jpg fill
     bindsym --to-code   $mod+8 workspace number 8
     bindsym --to-code   $mod+9 workspace number 9
     bindsym --to-code   $mod+0 workspace number 10
-    # Move focused container to workspace
+
+## Move focused container to workspace
     bindsym --to-code   $mod+Shift+1 move container to workspace number 1
     bindsym --to-code   $mod+Shift+2 move container to workspace number 2
     bindsym --to-code   $mod+Shift+3 move container to workspace number 3
@@ -140,9 +108,8 @@ output                  * bg /usr/share/backgrounds/0296.jpg fill
     bindsym --to-code   $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
-#
-# Layout stuff:
-#
+
+## Layout stuff:
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
@@ -165,9 +132,8 @@ output                  * bg /usr/share/backgrounds/0296.jpg fill
 
     # Move focus to the parent container
     bindsym --to-code    $mod+a focus parent
-#
-# Scratchpad:
-#
+
+## Scratchpad:
     # Sway has a "scratchpad", which is a bag of holding for windows.
     # You can send windows there and get them back later.
 
@@ -177,9 +143,8 @@ output                  * bg /usr/share/backgrounds/0296.jpg fill
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym --to-code    $mod+minus scratchpad show
-#
-# Resizing containers:
-#
+
+## Resizing containers:
 mode                    "resize" {
     # left will shrink the containers width
     # right will grow the containers width
@@ -202,10 +167,8 @@ mode                    "resize" {
 }
 bindsym                 $mod+r mode "resize"
 
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
+
+## Status Bar `man 5 sway-bar`
 bar                     {
     swaybar_command waybar
 
@@ -214,7 +177,6 @@ bar                     {
 input * xkb_numlock enabled
 
 #Keymap
-
 input * {
     xkb_layout "us,ru"
     xkb_options "grp:win_space_toggle, ctrl:nocaps"
@@ -222,13 +184,8 @@ input * {
 
 # Touchpad
 input 2:7:SynPS/2_Synaptics_TouchPad {
-    # left_handed disabled
-    # tap enabled
     middle_emulation enabled
     natural_scroll enabled
-    # dwt enabled
-    # accel_profile "flat" # disable mouse acceleration (enabled by default; to set it manually, use "adaptive" instead of "flat")
-    # pointer_accel 0.3 # set mouse sensitivity (between -1 and 1)
 }
 
 
