@@ -18,7 +18,7 @@ gaps inner 15
 default_border pixel 1
 
 
-## Wallpaper #"stretch", "fill", "fit", "center", "tile"
+## Wallpaper. Options: "stretch", "fill", "fit", "center", "tile"
 output                   * bg /home/zakharovdev/.config/sway/st2.jpg fill
 
 
@@ -94,6 +94,18 @@ output                   * bg /home/zakharovdev/.config/sway/st2.jpg fill
     bindsym --to-code   $mod+8 workspace number 8
     bindsym --to-code   $mod+9 workspace number 9
     bindsym --to-code   $mod+0 workspace number 10
+
+    ## Switch to workspace Num Lock
+    bindsym --to-code   $mod+KP_1 workspace number 1
+    bindsym --to-code   $mod+KP_2 workspace number 2
+    bindsym --to-code   $mod+KP_3 workspace number 3
+    bindsym --to-code   $mod+KP_4 workspace number 4
+    bindsym --to-code   $mod+KP_5 workspace number 5
+    bindsym --to-code   $mod+KP_6 workspace number 6
+    bindsym --to-code   $mod+KP_7 workspace number 7
+    bindsym --to-code   $mod+KP_8 workspace number 8
+    bindsym --to-code   $mod+KP_9 workspace number 9
+    bindsym --to-code   $mod+KP_0 workspace number 10
 
 ## Move focused container to workspace
     bindsym --to-code   $mod+Shift+1 move container to workspace number 1
