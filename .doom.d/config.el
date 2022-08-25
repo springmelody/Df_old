@@ -9,6 +9,8 @@
 (setq user-full-name "Aleksandr Zakharov"
       user-mail-address "zakharovdev.com")
 
+(ispell-change-dictionary "en")
+(setq auto-save-default t)
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
 ;; - `doom-font' -- the primary font to use
