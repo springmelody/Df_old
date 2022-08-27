@@ -1,11 +1,11 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: JetBrains Mono, Roboto, Helvetica, Arial, sans-serif;
+    font-family: JetBrains Mono, "Font Awesome 6 Free";
     font-size: 13px;
 }
 
 window#waybar {
-    background-color: #A593E0;
+    background-color: #274c5e;
     color: #ffffff;
 }
 
