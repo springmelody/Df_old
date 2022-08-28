@@ -19,7 +19,7 @@ default_border pixel 1
 
 
 ## Wallpaper. Options: "stretch", "fill", "fit", "center", "tile"
-output                   * bg /home/zakharovdev/.config/sway/st2.jpg fill
+output                   * bg /home/zakharovdev/.config/sway/bg-3.jpg fill
 
 
 ### Idle configuration
@@ -39,6 +39,10 @@ output                   * bg /home/zakharovdev/.config/sway/st2.jpg fill
 
 ## Start a terminal
     bindsym --to-code   $mod+Return exec $term
+
+## Screen
+bindsym --to-code Print exec grim ~/screen-"$(date +%s)".png
+bindsym --to-code $mod+Print exec grim -g "$(slurp)" ~/screen-"$(date +%s)".png
 
 ## Kill focused window
     bindsym --to-code   $mod+Shift+c kill
@@ -144,6 +148,7 @@ output                   * bg /home/zakharovdev/.config/sway/st2.jpg fill
 
     # Move focus to the parent container
     bindsym --to-code    $mod+a focus parent
+
 
 ## Scratchpad:
     # Sway has a "scratchpad", which is a bag of holding for windows.
