@@ -19,7 +19,7 @@ default_border pixel 1
 
 
 ## Wallpaper. Options: "stretch", "fill", "fit", "center", "tile"
-output                   * bg /home/zakharovdev/.config/sway/bg-3.jpg fill
+output                   * bg /home/zakharovdev/.config/sway/p-1.jpg fill
 
 
 ### Idle configuration
@@ -43,6 +43,12 @@ output                   * bg /home/zakharovdev/.config/sway/bg-3.jpg fill
 ## Screen
 bindsym --to-code Print exec grim ~/screen-"$(date +%s)".png
 bindsym --to-code $mod+Print exec grim -g "$(slurp)" ~/screen-"$(date +%s)".png
+
+## Volume
+bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym --locked XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 ## Kill focused window
     bindsym --to-code   $mod+Shift+c kill
