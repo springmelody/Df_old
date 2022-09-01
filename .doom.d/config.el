@@ -9,8 +9,13 @@
 (setq user-full-name "Aleksandr Zakharov"
       user-mail-address "zakharovdev.com")
 
-(ispell-change-dictionary "en")
-(setq auto-save-default t)
+(setq undo-limit 80000000                         ; Raise undo-limit to 80Mb
+      evil-want-fine-undo t                       ; By default while in insert all changes are one big blob. Be more granular
+      auto-save-default t                         ; Nobody likes to loose work, I certainly don't
+      inhibit-compacting-font-caches t            ; When there are lots of glyphs, keep them in memory
+      truncate-string-ellipsis "…"
+      )
+
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
 ;; - `doom-font' -- the primary font to use
