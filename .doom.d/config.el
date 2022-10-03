@@ -81,6 +81,20 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+
+
+(after! lsp-ui
+  (setq lsp-enable-symbol-highlighting nil)
+  (setq lsp-ui-doc-enable nil)
+  (setq lsp-ui-doc-show-with-mouse nil)
+  (setq lsp-ui-doc-show-with-cursor nil)
+  (setq lsp-lens-enable t)
+  (setq lsp-semantic-tokens-enable nil)
+  (setq lsp-eldoc-enable-hover nil)
+  (setq lsp-ui-sideline-enable nil)
+  (setq lsp-modeline-code-actions-enable nil))
+
 (use-package reverse-im
   :config
   (reverse-im-activate "russian-computer"))
